@@ -38,7 +38,7 @@ export class UserService {
     });
   }
 
-  async createUser(user: User) {
+  async createUser(user: UserDto) {
     return await this.userRepository.save(user);
   }
 
@@ -50,7 +50,7 @@ export class UserService {
     return await this.userRepository.save(user);
   }
 
-  async delete(id: string) {
+  async delete(id: number) {
     return await this.userRepository.delete(id);
   }
 }
