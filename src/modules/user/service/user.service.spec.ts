@@ -63,7 +63,6 @@ describe('User Service', () => {
       _id: Date.now(),
       name: faker.person.fullName(),
       email: faker.internet.email(),
-      password: '123456',
       username: faker.internet.username(),
     } as User;
     const users = [user];
@@ -82,7 +81,6 @@ describe('User Service', () => {
       _id: Date.now(),
       name: faker.person.fullName(),
       email: faker.internet.email(),
-      password: '123456',
       username: faker.internet.username(),
     } as User;
 
@@ -92,6 +90,7 @@ describe('User Service', () => {
     expect(result).toEqual(user);
     expect(mockUserRepository.findOne).toHaveBeenCalled();
     expect(mockUserRepository.findOne).toHaveBeenCalledWith({
+      select: ['_id', 'name', 'email', 'username'],
       where: { _id: id },
     });
   });
@@ -101,7 +100,6 @@ describe('User Service', () => {
       _id: Date.now(),
       name: faker.person.fullName(),
       email: faker.internet.email(),
-      password: '123456',
       username: faker.internet.username(),
     } as User;
 

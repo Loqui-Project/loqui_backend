@@ -46,11 +46,11 @@ export class UserService {
     const user = await this.userRepository.findOne({
       where: { _id: id },
     });
-    await this.userRepository.merge(user, newUser);
+    this.userRepository.merge(user, newUser);
     return await this.userRepository.save(user);
   }
 
-  async delete(id: number) {
+  async delete(id: string | number) {
     return await this.userRepository.delete(id);
   }
 }
